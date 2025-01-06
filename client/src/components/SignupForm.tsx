@@ -6,7 +6,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { ADD_USER } from '../utils/mutations';
 // import { createUser } from '../utils/API';
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 import type { User } from '../models/User';
 import { useMutation } from '@apollo/client';
 
@@ -51,7 +51,7 @@ const SignupForm = ({}: { handleModalClose: () => void }) => {
       }
   
       const token = data.addUser.token;
-      localStorage.setItem('id_token', token); 
+      Auth.login(token); 
     } catch (err) {
       console.error(err);
       setShowAlert(true);

@@ -43,9 +43,9 @@ const LoginForm = ({}: { handleModalClose: () => void }) => {
         throw new Error("Error logging in");
       }
 
-      const { token } = data.login.token;
-      localStorage.setItem('id_token', token);
+      const { token } = data.login;
       Auth.login(token);
+      console.log(`Token: ${token}`);
     } catch (err) {
       console.error(err);
       setShowAlert(true);

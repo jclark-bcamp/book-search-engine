@@ -43,7 +43,7 @@ const resolvers = { // Define the query and mutation functionality to work with 
       return { token, user }; 
     },
 
-    saveBook: async (_: any, { book }: any, context: any) => { // Add a book to a user's savedBooks array
+    saveBook: async (_: any, book: any, context: any) => { // Add a book to a user's savedBooks array
       if (!context.user) {
         throw new Error("Authentication failed. No user context."); 
       }
