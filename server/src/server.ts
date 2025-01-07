@@ -11,7 +11,7 @@ import db from './config/connection.js';
 import { EventEmitter } from 'events';
 import { fileURLToPath } from 'url';
 
-const app = express();
+const app = express(); // Create an Express server
 
 // Set up a static directory for the client
 const __filename = fileURLToPath(import.meta.url);
@@ -19,8 +19,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '../../client/dist')));
 
-// Create a new Apollo server and pass in the schema data
-const server = new ApolloServer({
+const server = new ApolloServer({ // Create a new Apollo server and pass in the schema data
   typeDefs,
   resolvers,
 });
